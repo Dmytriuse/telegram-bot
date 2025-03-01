@@ -1,1 +1,18 @@
+name: Run Telegram Bot
 
+on:
+  schedule:
+    - cron: "0 */5 * * *"  # Запуск кожні 6 годин
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run bot
+        run: python bot.py
