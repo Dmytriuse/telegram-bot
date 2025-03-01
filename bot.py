@@ -1,5 +1,4 @@
-from telethon import TelegramClient, events
-
+from telethon import TelegramClient
 import os
 
 API_ID = os.getenv("API_ID")
@@ -7,6 +6,7 @@ API_HASH = os.getenv("API_HASH")
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 USER_ID = os.getenv("USER_ID")
 
+bot = TelegramClient("bot_session", API_ID, API_HASH).start(bot_token=BOT_TOKEN)
 print(f"DEBUG: API_ID={API_ID}, API_HASH={API_HASH}, BOT_TOKEN={BOT_TOKEN}, USER_ID={USER_ID}")
 
 if not API_ID or not API_HASH:
