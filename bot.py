@@ -2,10 +2,18 @@ from telethon import TelegramClient, events
 
 import os
 
-API_ID = int(os.getenv("API_ID", "0"))  # Додаємо значення за замовчуванням
-API_HASH = os.getenv("API_HASH", "")
-BOT_TOKEN = os.getenv("BOT_TOKEN", "")
-USER_ID = int(os.getenv("USER_ID", "0"))  # Аналогічно для USER_ID
+API_ID = os.getenv("API_ID")
+API_HASH = os.getenv("API_HASH")
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+USER_ID = os.getenv("USER_ID")
+
+print(f"API_ID: {API_ID}, API_HASH: {API_HASH}")  # Додаємо перевірку
+
+if not API_ID or not API_HASH:
+    raise ValueError("Помилка! API_ID або API_HASH не отримано!")
+
+API_ID = int(API_ID)  # Перетворюємо API_ID на число
+USER_ID = int(USER_ID) if USER_ID else None
 
 # 🔹 Ключові слова для пошуку
 KEYWORDS = ["робота", "вакансія", "зустріч", "вечірка", "концерт", "місце", "час"]
