@@ -1,12 +1,21 @@
 from telethon import TelegramClient
 import os
 
-API_ID = os.getenv("API_ID")
+# Отримуємо змінні з GitHub Secrets
+API_ID = int(os.getenv("API_ID"))
 API_HASH = os.getenv("API_HASH")
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-USER_ID = os.getenv("USER_ID")
+USER_ID = int(os.getenv("USER_ID"))
 
-bot = TelegramClient("bot_session", API_ID, API_HASH).start(bot_token=BOT_TOKEN)
+# Використовуємо MemorySession замість файлу сесії
+bot = TelegramClient("MemorySession", API_ID, API_HASH).start(bot_token=BOT_TOKEN)
+
+async def main():
+    await bot.send_message(USER_ID, "✅ Бот запущено через GitHub Actions!")
+
+with bot:
+    bot.loop.run_until_complete(main())
+
 print(f"DEBUG: API_ID={API_ID}, API_HASH={API_HASH}, BOT_TOKEN={BOT_TOKEN}, USER_ID={USER_ID}")
 
 if not API_ID or not API_HASH:
