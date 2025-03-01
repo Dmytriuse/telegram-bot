@@ -2,7 +2,7 @@ name: Run Telegram Bot
 
 on:
   schedule:
-    - cron: "0 */6 * * *"  # Запуск кожні 6 годин
+    - cron: '0 */6 * * *'  # Запуск кожні 6 годин
   workflow_dispatch:  # Дозволяє запускати вручну
 
 jobs:
@@ -17,4 +17,5 @@ jobs:
 
       - name: Run bot
         run: python3 bot.py
+# Оновлення для запуску
 
