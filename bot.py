@@ -1,9 +1,10 @@
 from telethon import TelegramClient, events
 
-# 🔹 Введи свої дані
-API_ID = 24347794  # Замінити на свій API ID
-API_HASH = "6bafdcfbdd6267a40d7691743f51752c"  # Замінити на свій API Hash
-BOT_TOKEN = "7998400388:AAGK9bAzGKu3NLeF36l5CWyuP50UD9s_RoY"  # Замінити на свій токен
+import os
+
+API_ID = int(os.getenv("API_ID"))
+API_HASH = os.getenv("API_HASH")
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 USER_ID = 746698623  # ВСТАВ СВІЙ USER ID (знайдений через @userinfobot)
 
 # 🔹 Ключові слова для пошуку
