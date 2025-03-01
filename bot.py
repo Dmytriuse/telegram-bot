@@ -7,12 +7,12 @@ API_HASH = os.getenv("API_HASH")
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 USER_ID = os.getenv("USER_ID")
 
-print(f"API_ID: {API_ID}, API_HASH: {API_HASH}")  # Додаємо перевірку
+print(f"DEBUG: API_ID={API_ID}, API_HASH={API_HASH}, BOT_TOKEN={BOT_TOKEN}, USER_ID={USER_ID}")
 
 if not API_ID or not API_HASH:
     raise ValueError("Помилка! API_ID або API_HASH не отримано!")
 
-API_ID = int(API_ID)  # Перетворюємо API_ID на число
+API_ID = int(API_ID)
 USER_ID = int(USER_ID) if USER_ID else None
 
 # 🔹 Ключові слова для пошуку
